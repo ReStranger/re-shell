@@ -5,9 +5,11 @@
         "strict": true,
         "target": "ES2022",
         "module": "ES2022",
+        "lib": ["ES2023"],
         "moduleResolution": "Bundler",
-        // "checkJs": true,
-        // "allowJs": true,
+        "skipLibCheck": true,
+        "checkJs": true,
+        "allowJs": true,
         "jsx": "react-jsx",
         "jsxImportSource": "/home/restranger/.local/share/ags/gtk3",
         "paths": {
