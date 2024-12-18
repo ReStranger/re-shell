@@ -1,0 +1,16 @@
+@use "../variables" as *;
+
+window.Bar {
+  background: transparent;
+  color: $theme-dark-fg;
+  font-weight: bold;
+
+  >centerbox {
+    background: $theme-dark-bg;
+  }
+
+  button {
+    border-radius: 8px;
+    margin: 2px;
+  }
+}
