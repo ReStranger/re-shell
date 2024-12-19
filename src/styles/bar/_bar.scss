@@ -2,11 +2,11 @@
 
 window.Bar {
   background: transparent;
-  color: $theme-dark-fg;
+  color: $widget-text;
   font-weight: bold;
 
   >centerbox {
-    background: $theme-dark-bg;
+    background: $widget-bg2;
   }
 
   button {
