@@ -20,12 +20,17 @@ const PopupWindow = ({
         layer={layer}
         keymode={keymode}
         visible={visible}
+        anchor={
+            Astal.WindowAnchor.TOP |
+            Astal.WindowAnchor.BOTTOM |
+            Astal.WindowAnchor.LEFT |
+            Astal.WindowAnchor.RIGHT
+        }
         {...props}
         setup={(self) => {
             const windowNames = popupWindowNames;
             windowNames.set([...windowNames.get(), self.name]);
 
-            // Set window visible when it's added to popupWindowNames
             self.set_visible(!!visible);
 
             self.hook(self, "notify::visible", () => {
@@ -37,7 +42,18 @@ const PopupWindow = ({
             if (setup) setup(self);
         }}
     >
-        {child}
+        <eventbox
+            vexpand={true}
+            hexpand={true}
+            onClick={(self) => {
+                const window = self.parent;
+                if (window) {
+                    window.visible = false;
+                }
+            }}
+        >
+            {child}
+        </eventbox>
     </window>
 );
 
