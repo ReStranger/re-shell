@@ -3,6 +3,7 @@ import scss from "./styles/index.scss";
 import Bar from "./widgets/bar/Bar";
 import ScreenCorners from "./widgets/bar/ScreenCorners";
 import QuickSettings from "./widgets/quicksettings/QuickSettings";
+import AppLauncher from "./widgets/launcher/AppLauncher";
 
 export default function () {
     App.start({
@@ -12,6 +13,8 @@ export default function () {
             App.get_monitors().map(Bar);
             App.get_monitors().map(ScreenCorners);
             App.get_monitors().map(QuickSettings);
+            AppLauncher();
+            App.get_window("AppLauncher")!.hide();
         },
     });
 }
