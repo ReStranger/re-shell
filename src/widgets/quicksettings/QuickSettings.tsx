@@ -1,6 +1,7 @@
 import { Astal, App, Gtk } from "astal/gtk3";
 import PopupWindow from "../PopupWindow";
 import { toggleWindow } from "../../lib/utils";
+import Network from "./buttons/Network";
 
 export default function () {
     return (
@@ -22,13 +23,28 @@ export default function () {
                 }
             }}
         >
-            <box className="QuickSettings" vertical valign={Gtk.Align.START}>
-                <button>sss</button>
-                <button>sss</button>
-                <button>sss</button>
-                <button>sss</button>
-                <button>sss</button>
-            </box>
+            <revealer
+                revealChild={false}
+                transitionType={Gtk.RevealerTransitionType.SLIDE_LEFT}
+                transitionDuration={400}
+                setup={(self) => {
+                    App.connect("window-toggled", (app) => {
+                        const win = app.get_window("quick-settings");
+                        const vis = win?.get_visible();
+                        if (win?.name === "quick-settings") {
+                            self.set_reveal_child(vis ?? false);
+                        }
+                    });
+                }}
+            >
+                <box
+                    className="QuickSettings"
+                    vertical
+                    valign={Gtk.Align.START}
+                >
+                    <Network />
+                </box>
+            </revealer>
         </PopupWindow>
     );
 }
