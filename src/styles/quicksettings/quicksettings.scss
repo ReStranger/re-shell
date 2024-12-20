@@ -1,5 +1,5 @@
-@use "../variables" as *;
-@use "../mixins" as *;
+@use "variables" as *;
+@use "mixins" as *;
 
 window.popup-window {
   .QuickSettings {
@@ -8,11 +8,11 @@ window.popup-window {
     margin: 10px;
 
 
-    .QSButton {
+    box.QSButton {
       all: unset;
       border-radius: 15px;
 
-      .QSToggle {
+      button.QSToggle {
         all: unset;
         background-color: $widget-surface2;
         border-top-left-radius: 10px;
@@ -21,7 +21,7 @@ window.popup-window {
         margin-right: 2px;
       }
 
-      .QSToggleMenu {
+      button.QSToggleMenu {
         all: unset;
         background-color: $widget-surface2;
         border-top-right-radius: 10px;

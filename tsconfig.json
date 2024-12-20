@@ -18,6 +18,13 @@
             ],
             "astal/*": [
                 "/home/restranger/.local/share/ags/*"
+            ],
+            "variables": [
+                "./src/styles/_variables.scss"
+            ],
+
+            "mixins": [
+                "./src/styles/_mixins.scss"
             ]
         },
     }

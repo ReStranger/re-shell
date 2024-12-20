@@ -1,5 +1,5 @@
 @use "sass:string";
-@use "../variables" as *;
+@use "variables" as *;
 
 @function gtkalpha($c, $a) {
   @return string.unquote("alpha(#{$c},#{$a})");

@@ -11,7 +11,7 @@ type QSButtonProps = {
     className?: Widget.ButtonProps["className"];
 } & Widget.ButtonProps;
 
-export default function QSButton({
+export default function ({
     icon,
     label,
     menuName,

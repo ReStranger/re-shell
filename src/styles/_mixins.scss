@@ -1,11 +1,10 @@
-@use "./variables" as *;
+@use "variables" as *;
 
 @mixin Window {
   background-color: $widget-bg2;
   border-radius: 15px;
   border: $border-width solid $border-color;
-  box-shadow:
-    0 0 0 1px rgba(238, 238, 238, 0.04) inset,
-    2px 3px 8px 0 $shadow-color;
+  box-shadow: 2px 3px 8px 0 gtkalpha(black, .4);
+  border: 1pt solid gtkalpha($widget-text, .03);
 
 }

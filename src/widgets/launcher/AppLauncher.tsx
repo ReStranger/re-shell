@@ -3,6 +3,7 @@ import { Variable } from "astal";
 import Apps from "gi://AstalApps";
 import AppButton from "./AppButton";
 import { handleInput } from "../../lib/utils";
+import PopupWindow from "../PopupWindow";
 
 export default function () {
     const { CENTER } = Gtk.Align;
@@ -35,7 +36,7 @@ export default function () {
     };
 
     return (
-        <window
+        <PopupWindow
             name="AppLauncher"
             anchor={Astal.WindowAnchor.TOP | Astal.WindowAnchor.BOTTOM}
             exclusivity={Astal.Exclusivity.IGNORE}
@@ -46,6 +47,22 @@ export default function () {
                 if (event.get_keyval()[1] === Gdk.KEY_Escape) self.hide();
             }}
         >
+            {/*
+            <revealer
+                revealChild={false}
+                transitionType={Gtk.RevealerTransitionType.SLIDE_LEFT}
+                transitionDuration={400}
+                setup={(self) => {
+                    App.connect("window-toggled", (app) => {
+                        const win = app.get_window("AppLauncher");
+                        const vis = win?.get_visible();
+                        if (win?.name === "AppLauncher") {
+                            self.set_reveal_child(vis ?? false);
+                        }
+                    });
+                }}
+            >
+        */}
             <box className="AppsList">
                 <eventbox widthRequest={1920} expand onClick={hide} />
                 <box hexpand={false} vertical>
@@ -78,6 +95,10 @@ export default function () {
                 </box>
                 <eventbox widthRequest={1920} expand onClick={hide} />
             </box>
-        </window>
+
+            {/*
+            </revealer>
+            */}
+        </PopupWindow>
     );
 }

@@ -1,5 +1,6 @@
 @use "sass:string";
-@use "../variables" as *;
+@use "variables" as *;
+@use "mixins" as *;
 
 @function gtkalpha($c, $a) {
   @return string.unquote("alpha(#{$c},#{$a})");
@@ -23,12 +24,9 @@ eventbox.Notification {
 
   // eventboxes can not take margins so we style its inner box instead
   >box {
+    @include Window;
     min-width: 400px;
-    border-radius: 13px;
-    background-color: $widget-bg2;
     margin: .5rem 1rem .5rem 1rem;
-    box-shadow: 2px 3px 8px 0 gtkalpha(black, .4);
-    border: 1pt solid gtkalpha($widget-text, .03);
   }
 
   &.critical>box {
@@ -72,6 +70,7 @@ eventbox.Notification {
       padding: .2rem;
       min-width: 0;
       min-height: 0;
+      background-color: $widget-surface0;
     }
   }
 
