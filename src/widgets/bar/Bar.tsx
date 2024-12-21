@@ -1,11 +1,16 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk3";
+import Clock from "./buttons/Clock";
 
 const Start = () => {
     return <box halign={Gtk.Align.START}></box>;
 };
 
 const Center = () => {
-    return <box></box>;
+    return (
+        <box>
+            <Clock />
+        </box>
+    );
 };
 
 const End = () => {

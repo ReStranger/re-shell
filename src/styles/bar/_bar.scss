@@ -1,4 +1,11 @@
 @use "variables" as *;
+@use "mixins" as *;
+
+@use "sass:string";
+
+@function gtkalpha($c, $a) {
+  @return string.unquote("alpha(#{$c},#{$a})");
+}
 
 window.Bar {
   background: transparent;
@@ -7,10 +14,13 @@ window.Bar {
 
   >centerbox {
     background: $widget-bg2;
-  }
 
-  button {
-    border-radius: 8px;
-    margin: 2px;
+    button.BarButton {
+      all: unset;
+      @include Button;
+      border-radius: 8px;
+      padding: 5px 10px;
+      margin: 3px;
+    }
   }
 }

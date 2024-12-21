@@ -8,7 +8,7 @@ type Props = ButtonProps & {
 export default ({ child, className, onClicked, ...props }: Props) => {
     return (
         <button
-            className={`BarItem BarButton ${className}`}
+            className={`BarButton ${className}`}
             onClicked={onClicked}
             valign={Gtk.Align.CENTER}
             {...props}
