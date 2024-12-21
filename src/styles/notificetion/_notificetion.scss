@@ -109,9 +109,13 @@ eventbox.Notification {
     margin-top: 0;
 
     button {
+      @include Button;
       margin: 0 .3rem;
-      background-color: $widget-surface0;
-      color: $widget-text;
+
+      &:active {
+        background-color: $mauve;
+        color: $widget-bg2;
+      }
 
       &:first-child {
         margin-left: 0;
