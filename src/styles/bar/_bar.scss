@@ -15,6 +15,14 @@ window.Bar {
   >centerbox {
     background: $widget-bg2;
 
+    >box.Start {
+      margin-left: 5px;
+    }
+
+    >box.End {
+      margin-left: 5px;
+    }
+
     button.BarButton {
       all: unset;
       @include Button;
