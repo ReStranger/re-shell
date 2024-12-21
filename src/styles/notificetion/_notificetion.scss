@@ -71,6 +71,7 @@ eventbox.Notification {
       min-width: 0;
       min-height: 0;
       background-color: $widget-surface0;
+      color: $widget-text;
     }
   }
 
@@ -109,6 +110,8 @@ eventbox.Notification {
 
     button {
       margin: 0 .3rem;
+      background-color: $widget-surface0;
+      color: $widget-text;
 
       &:first-child {
         margin-left: 0;
