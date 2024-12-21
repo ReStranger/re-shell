@@ -1,20 +1,25 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk3";
 import Clock from "./buttons/Clock";
+import WindowName from "./buttons/WindowName";
 
 const Start = () => {
-    return <box halign={Gtk.Align.START}></box>;
+    return (
+        <box halign={Gtk.Align.START} className="Start">
+            <WindowName />
+        </box>
+    );
 };
 
 const Center = () => {
     return (
-        <box>
+        <box className="Center">
             <Clock />
         </box>
     );
 };
 
 const End = () => {
-    return <box halign={Gtk.Align.END}></box>;
+    return <box halign={Gtk.Align.END} className="End"></box>;
 };
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
