@@ -5,6 +5,7 @@ import ScreenCorners from "./widgets/bar/ScreenCorners";
 import QuickSettings from "./widgets/quicksettings/QuickSettings";
 import AppLauncher from "./widgets/launcher/AppLauncher";
 import NotificationPopups from "./widgets/notificetion/NotificationPopups";
+import MediaPlayer from "./widgets/mediaplayer/MediaPlayer";
 
 export default function () {
     App.start({
@@ -17,6 +18,7 @@ export default function () {
             App.get_monitors().map(NotificationPopups);
             AppLauncher();
             App.get_window("AppLauncher")!.hide();
+            //App.get_monitors().map(MediaPlayer);
         },
     });
 }
