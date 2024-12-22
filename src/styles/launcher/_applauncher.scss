@@ -1,5 +1,6 @@
 @use "sass:string";
 @use "variables" as *;
+@use "mixins" as *;
 
 @function gtkalpha($c, $a) {
   @return string.unquote("alpha(#{$c},#{$a})");
@@ -35,6 +36,7 @@ window#AppLauncher {
         color: $widget-fg;
         background: $mauve;
       }
+
     }
 
     button {
@@ -42,7 +44,14 @@ window#AppLauncher {
       min-height: 0;
       padding: .5rem;
       border-radius: $radius;
-      background-color: $widget-bg0;
+      @include Button;
+
+      &:hover,
+      &:focus {
+        label.description {
+          color: $widget-surface0;
+        }
+      }
 
       icon {
         font-size: 3em;
@@ -51,7 +60,7 @@ window#AppLauncher {
 
       label.name {
         font-weight: bold;
-        font-size: 1.1em
+        font-size: 1.1em;
       }
 
       label.description {
