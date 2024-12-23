@@ -1,6 +1,6 @@
 import { GLib, Variable } from "astal";
 import BarButton from "./BarButton";
-import { toggleWindow } from "../../../lib/utils";
+import { openMenu } from "../../../lib/utils";
 
 interface DateTimeFormatProps {
     format: string;
@@ -24,7 +24,7 @@ const Time = () => {
             className="Time"
             cursor="pointer"
             onClicked={() => {
-                toggleWindow("quick-settings");
+                openMenu("quick-settings");
             }}
         >
             <DateTimeFormat format="%H:%M" />
@@ -38,7 +38,7 @@ const Date = () => {
             className="Date"
             cursor="pointer"
             onClicked={() => {
-                toggleWindow("quick-settings");
+                openMenu("quick-settings");
             }}
         >
             <DateTimeFormat format="%a %e" />

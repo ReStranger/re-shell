@@ -1,22 +1,42 @@
-import { App } from "astal/gtk3";
+import { App, Gdk } from "astal/gtk3";
+import { GtkWidget } from "../lib/types/widget";
 import Apps from "gi://AstalApps";
 import { popupWindowNames } from "./variables";
 
-export function activePopupWindows() {
-    const windowNames = popupWindowNames.get();
+export const closeAllMenus = (): void => {
+    const menuWindows = App.get_windows()
+        .filter((w) => {
+            if (w.name) {
+                return /.*menu/.test(w.name);
+            }
 
-    return App.get_windows().filter(
-        (window) => windowNames.includes(window.name) && window.visible,
-    );
-}
+            return false;
+        })
+        .map((window) => window.name);
 
-export function toggleWindow(windowName: string) {
-    const window = App.get_window(windowName);
-    if (!window) {
-        return;
+    menuWindows.forEach((window) => {
+        if (window) {
+            App.get_window(window)?.set_visible(false);
+        }
+    });
+};
+
+export const openMenu = async (
+    //clicked: GtkWidget,
+    //event: Gdk.Event,
+    window: string,
+): Promise<void> => {
+    try {
+        closeAllMenus();
+        App.toggle_window(window);
+    } catch (error) {
+        if (error instanceof Error) {
+            console.error(`Error calculating menu position: ${error.stack}`);
+        } else {
+            console.error(`Unknown error occurred: ${error}`);
+        }
     }
-    window.visible = !window.visible;
-}
+};
 
 export function isMathExpression(input: string): boolean {
     return /^[\d+\-*/().\s^]+$/.test(input);
