@@ -1,34 +1,32 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-window.popup-window {
-  .QuickSettings {
-    @include Window;
-    padding: 200px;
-    margin: 10px;
+box.QuickSettings {
+  @include Window;
+  padding: 200px;
+  margin: 10px;
 
 
-    box.QSButton {
+  box.QSButton {
+    all: unset;
+    border-radius: 15px;
+
+    button.QSToggle {
       all: unset;
-      border-radius: 15px;
+      background-color: $widget-surface2;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      padding: 20px 40px;
+      margin-right: 2px;
+    }
 
-      button.QSToggle {
-        all: unset;
-        background-color: $widget-surface2;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-        padding: 20px 40px;
-        margin-right: 2px;
-      }
-
-      button.QSToggleMenu {
-        all: unset;
-        background-color: $widget-surface2;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-        padding-left: 5px;
-        padding-right: 5px;
-      }
+    button.QSToggleMenu {
+      all: unset;
+      background-color: $widget-surface2;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      padding-left: 5px;
+      padding-right: 5px;
     }
   }
 }

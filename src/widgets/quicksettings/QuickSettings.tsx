@@ -6,8 +6,8 @@ export default function () {
     return (
         <PopupWindow
             name={"quick-settings"}
+            layout="top-center"
             transition={Gtk.RevealerTransitionType.SLIDE_DOWN}
-            className="QuickSettings"
         >
             <box
                 className="QuickSettings"
