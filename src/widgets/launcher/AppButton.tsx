@@ -30,7 +30,9 @@ export default function ({ app }: AppButtonProps) {
                     {app.description && (
                         <label
                             className="description"
+                            maxWidthChars={43}
                             wrap
+                            truncate
                             xalign={0}
                             label={app.description}
                         />

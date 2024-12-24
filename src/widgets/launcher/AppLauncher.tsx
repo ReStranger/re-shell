@@ -58,7 +58,14 @@ export default function () {
                     onChanged={(self) => text.set(self.text)}
                     onActivate={onEnter}
                     setup={(self) => {
-                        self.grab_focus();
+                        App.connect("window-toggled", (_, win) => {
+                            if (
+                                win.name == "AppLauncher" &&
+                                win.visible == true
+                            ) {
+                                self.grab_focus();
+                            }
+                        });
                     }}
                 />
                 <box spacing={6} vertical>
