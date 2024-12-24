@@ -38,31 +38,17 @@ export default function () {
     return (
         <PopupWindow
             name="AppLauncher"
-            anchor={Astal.WindowAnchor.TOP | Astal.WindowAnchor.BOTTOM}
-            exclusivity={Astal.Exclusivity.IGNORE}
-            keymode={Astal.Keymode.ON_DEMAND}
+            anchor={Astal.WindowAnchor.TOP | Astal.WindowAnchor.TOP}
+            exclusivity={Astal.Exclusivity.NORMAL}
+            keymode={Astal.Keymode.EXCLUSIVE}
             application={App}
+            transition={Gtk.RevealerTransitionType.SLIDE_DOWN}
+            layout="top-center"
             onShow={() => text.set("")}
             onKeyPressEvent={function (self, event: Gdk.Event) {
                 if (event.get_keyval()[1] === Gdk.KEY_Escape) self.hide();
             }}
         >
-            {/*
-            <revealer
-                revealChild={false}
-                transitionType={Gtk.RevealerTransitionType.SLIDE_LEFT}
-                transitionDuration={400}
-                setup={(self) => {
-                    App.connect("window-toggled", (app) => {
-                        const win = app.get_window("AppLauncher");
-                        const vis = win?.get_visible();
-                        if (win?.name === "AppLauncher") {
-                            self.set_reveal_child(vis ?? false);
-                        }
-                    });
-                }}
-            >
-        */}
             <box className="AppsList">
                 <eventbox widthRequest={1920} expand onClick={hide} />
                 <box hexpand={false} vertical>
@@ -73,6 +59,9 @@ export default function () {
                             text={text()}
                             onChanged={(self) => text.set(self.text)}
                             onActivate={onEnter}
+                            setup={(self) => {
+                                self.grab_focus();
+                            }}
                         />
                         <box spacing={6} vertical>
                             {list.as((list) =>
@@ -95,10 +84,6 @@ export default function () {
                 </box>
                 <eventbox widthRequest={1920} expand onClick={hide} />
             </box>
-
-            {/*
-            </revealer>
-            */}
         </PopupWindow>
     );
 }
