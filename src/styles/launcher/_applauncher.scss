@@ -13,6 +13,7 @@ window#AppLauncher {
     @include Window;
     border-radius: $radius;
     margin: 1rem;
+    margin-top: 120px;
     padding: .8rem;
 
     entry {

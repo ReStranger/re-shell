@@ -38,9 +38,6 @@ export default function () {
     return (
         <PopupWindow
             name="AppLauncher"
-            anchor={Astal.WindowAnchor.TOP | Astal.WindowAnchor.TOP}
-            exclusivity={Astal.Exclusivity.NORMAL}
-            keymode={Astal.Keymode.EXCLUSIVE}
             application={App}
             transition={Gtk.RevealerTransitionType.SLIDE_DOWN}
             layout="top-center"
@@ -49,40 +46,37 @@ export default function () {
                 if (event.get_keyval()[1] === Gdk.KEY_Escape) self.hide();
             }}
         >
-            <box className="AppsList">
-                <eventbox widthRequest={1920} expand onClick={hide} />
-                <box hexpand={false} vertical>
-                    <eventbox heightRequest={100} onClick={hide} />
-                    <box widthRequest={500} className="applauncher" vertical>
-                        <entry
-                            placeholderText=" Search"
-                            text={text()}
-                            onChanged={(self) => text.set(self.text)}
-                            onActivate={onEnter}
-                            setup={(self) => {
-                                self.grab_focus();
-                            }}
-                        />
-                        <box spacing={6} vertical>
-                            {list.as((list) =>
-                                list.map((app) => <AppButton app={app} />),
-                            )}
-                        </box>
-                        <box
-                            halign={CENTER}
-                            className="not-found"
-                            vertical
-                            visible={list.as(
-                                (l) => text.get().length > 0 && l.length === 0,
-                            )}
-                        >
-                            <icon icon="system-search-symbolic" />
-                            <label label="No match found" />
-                        </box>
-                    </box>
-                    <eventbox className="eventbox" expand onClick={hide} />
+            <box
+                hexpand={false}
+                widthRequest={500}
+                className="applauncher"
+                vertical
+            >
+                <entry
+                    placeholderText=" Search"
+                    text={text()}
+                    onChanged={(self) => text.set(self.text)}
+                    onActivate={onEnter}
+                    setup={(self) => {
+                        self.grab_focus();
+                    }}
+                />
+                <box spacing={6} vertical>
+                    {list.as((list) =>
+                        list.map((app) => <AppButton app={app} />),
+                    )}
                 </box>
-                <eventbox widthRequest={1920} expand onClick={hide} />
+                <box
+                    halign={CENTER}
+                    className="not-found"
+                    vertical
+                    visible={list.as(
+                        (l) => text.get().length > 0 && l.length === 0,
+                    )}
+                >
+                    <icon icon="system-search-symbolic" />
+                    <label label="No match found" />
+                </box>
             </box>
         </PopupWindow>
     );
