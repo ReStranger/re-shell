@@ -10,7 +10,8 @@
 }
 
 @mixin Button {
-  background-color: gtkalpha($widget-surface2, .3);
+  background-color: gtkalpha($widget-text, .06);
+  box-shadow: 0 0 0 1px gtkalpha($widget-text, .04) inset;
   color: $widget-text;
 
   &:hover,
