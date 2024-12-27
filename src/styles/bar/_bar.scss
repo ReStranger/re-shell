@@ -32,6 +32,37 @@ window.Bar {
       margin: 5px 3px;
     }
 
+    box.Battery {
+      overlay {
+        label.percentage {
+          font-size: 1.1rem;
+          font-weight: bold;
+          color: $widget-bg2;
+        }
+
+        scale {
+          padding: 0;
+          margin: 0 5px;
+
+          highlight {
+            background-color: $mauve;
+            border-radius: $radius - 7px;
+          }
+
+          trough {
+            background-color: $widget-surface0;
+            border-radius: $radius - 7px;
+          }
+
+          slider {
+            all: unset;
+            padding: 12px 30px;
+          }
+        }
+
+      }
+    }
+
     button.QSBarItems {
       icon {
         font-size: 1.2rem;

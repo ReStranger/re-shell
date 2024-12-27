@@ -64,11 +64,13 @@ box.QuickSettings {
 
       button.QSToggleMenu {
         all: unset;
-        background-color: $widget-surface2;
+        background-color: $mauve;
+        color: $widget-bg2;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
         padding-left: 5px;
         padding-right: 5px;
+        font-size: 1.5rem;
       }
     }
   }
