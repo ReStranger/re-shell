@@ -26,9 +26,10 @@ window.Bar {
     button.BarButton {
       all: unset;
       @include Button;
-      border-radius: 8px;
+      font-size: 1.1rem;
+      border-radius: 12px;
       padding: 5px 10px;
-      margin: 3px;
+      margin: 5px 3px;
     }
   }
 }
