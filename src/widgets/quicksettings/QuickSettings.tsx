@@ -3,6 +3,7 @@ import PopupWindow from "../PopupWindow";
 import { openMenu } from "../../lib/utils";
 import AudioSlider from "./sliders/AudioSlider";
 import MediaPlayer from "../mediaplayer/MediaPlayer";
+import BrightnessSlider from "./sliders/BrightnessSlider";
 
 export default function () {
     return (
@@ -14,6 +15,7 @@ export default function () {
             <box className="QuickSettings" vertical valign={Gtk.Align.START}>
                 <box className="SliderSection" vertical>
                     <AudioSlider />
+                    <BrightnessSlider />
                 </box>
                 <MediaPlayer />
             </box>

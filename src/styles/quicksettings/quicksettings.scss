@@ -14,7 +14,8 @@ box.QuickSettings {
     border-radius: $radius - 5px;
     background-color: gtkalpha($widget-text, .06);
 
-    box.AudioSlider {
+    box.AudioSlider,
+    box.BrightnessSlider {
       min-width: 150px;
       margin: 1px;
       margin-left: 10px;
