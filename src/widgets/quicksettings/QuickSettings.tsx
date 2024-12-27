@@ -8,7 +8,7 @@ export default function () {
     return (
         <PopupWindow
             name={"quick-settings"}
-            layout="top-center"
+            layout="top-right"
             transition={Gtk.RevealerTransitionType.SLIDE_DOWN}
         >
             <box className="QuickSettings" vertical valign={Gtk.Align.START}>
