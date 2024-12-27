@@ -1,6 +1,8 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk3";
 import Clock from "./buttons/Clock";
 import WindowName from "./buttons/WindowName";
+import PowerBarButton from "./buttons/PowerBarButton";
+import QSBarItems from "./buttons/QSBarItems";
 
 const Start = () => {
     return (
@@ -19,7 +21,12 @@ const Center = () => {
 };
 
 const End = () => {
-    return <box halign={Gtk.Align.END} className="End"></box>;
+    return (
+        <box halign={Gtk.Align.END} className="End">
+            <QSBarItems />
+            <PowerBarButton />
+        </box>
+    );
 };
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {

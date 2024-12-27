@@ -20,7 +20,7 @@ window.Bar {
     }
 
     >box.End {
-      margin-left: 5px;
+      margin-right: 5px;
     }
 
     button.BarButton {
@@ -30,6 +30,30 @@ window.Bar {
       border-radius: 12px;
       padding: 5px 10px;
       margin: 5px 3px;
+    }
+
+    button.QSBarItems {
+      icon {
+        font-size: 1.2rem;
+        margin: 0 2px;
+      }
+    }
+
+    button.PowerBarButton {
+      padding: 6px;
+      border-radius: 50%;
+
+      icon {
+        color: $red;
+        font-size: 1.3rem;
+      }
+
+      &:hover,
+      &:active {
+        icon {
+          color: $widget-bg2;
+        }
+      }
     }
   }
 }
