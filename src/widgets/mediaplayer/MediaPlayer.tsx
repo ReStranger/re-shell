@@ -52,7 +52,8 @@ function MediaPlayer({ player }: { player: Mpris.Player }) {
                     className="artist"
                     halign={START}
                     valign={START}
-                    vexpand
+                    // FIXME: vexpand breack PopupWindow
+                    //vexpand
                     truncate
                     maxWidthChars={20}
                     wrap
