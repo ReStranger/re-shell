@@ -22,12 +22,9 @@ export default function ({
     return (
         <box className={`QSButton ${className}`}>
             <button className="QSToggle">
-                <box
-                    orientation={Gtk.Orientation.VERTICAL}
-                    valign={Gtk.Align.CENTER}
-                >
-                    <icon icon={icon} halign={Gtk.Align.CENTER} />
-                    <label label={label} halign={Gtk.Align.CENTER} />
+                <box halign={Gtk.Align.START}>
+                    <icon icon={icon} halign={Gtk.Align.START} />
+                    <label label={label} halign={Gtk.Align.START} />
                 </box>
             </button>
 
