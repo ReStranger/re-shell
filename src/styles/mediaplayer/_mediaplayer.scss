@@ -1,18 +1,18 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-window {
-  all: unset;
-}
-
 box.MediaPlayer {
-  @include Window;
+  background-color: gtkalpha($widget-text, .06);
+  border: none;
+  box-shadow: none;
   padding: .6rem;
+  border-radius: $radius - 5px;
+  margin: 5px 0;
 
   box.cover-art {
     min-width: 120px;
     min-height: 120px;
-    border-radius: $radius;
+    border-radius: 9px;
     margin-right: .6rem;
     background-size: contain;
     background-position: center;
@@ -22,7 +22,13 @@ box.MediaPlayer {
     label {
       font-weight: bold;
       font-size: 1.1em;
+      color: $widget-text;
     }
+  }
+
+  label.artist {
+    color: $widget-text;
+    margin-bottom: 40px;
   }
 
   scale {
@@ -31,10 +37,11 @@ box.MediaPlayer {
 
     trough {
       min-height: 8px;
+      background-color: $widget-bg2;
     }
 
     highlight {
-      background-color: $widget-fg;
+      background-color: $mauve;
     }
 
     slider {
@@ -46,10 +53,18 @@ box.MediaPlayer {
     min-width: 220px;
 
     button {
+      @include Button;
       min-width: 0;
       min-height: 0;
       padding: .4rem;
       margin: 0 .2rem;
+      border-radius: 8px;
     }
+  }
+
+  label.position,
+  label.length {
+    font-weight: bold;
+    color: $widget-text;
   }
 }
