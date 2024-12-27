@@ -3,8 +3,108 @@
 
 box.QuickSettings {
   @include Window;
-  padding: 200px;
+  padding: 10px;
   margin: 10px;
+
+  box.SliderSection {
+    min-width: 350px;
+    padding: 3px .6rem;
+    margin: 5px 0;
+    border-radius: $radius - 5px;
+    background-color: gtkalpha($widget-text, .06);
+
+    box.AudioSlider {
+      min-width: 150px;
+      margin: 1px;
+      margin-left: 10px;
+
+      icon {
+        font-size: 1.2rem;
+        color: $widget-text;
+      }
+
+      highlight {
+        background-color: $mauve;
+      }
+
+      trough {
+        background-color: $widget-bg2;
+      }
+
+      slider {
+        all: unset;
+        padding: 5px;
+      }
+    }
+  }
+
+  box.MediaPlayer {
+    background-color: gtkalpha($widget-text, .06);
+    border: none;
+    box-shadow: none;
+    padding: .6rem;
+    border-radius: $radius - 5px;
+    margin: 5px 0;
+
+    box.cover-art {
+      min-width: 120px;
+      min-height: 120px;
+      border-radius: 9px;
+      margin-right: .6rem;
+      background-size: contain;
+      background-position: center;
+    }
+
+    box.title {
+      label {
+        font-weight: bold;
+        font-size: 1.1em;
+        color: $widget-text;
+      }
+    }
+
+    label.artist {
+
+      color: $widget-text;
+    }
+
+    scale {
+      padding: 0;
+      margin: .4rem 0;
+
+      trough {
+        min-height: 8px;
+        background-color: $widget-bg2;
+      }
+
+      highlight {
+        background-color: $mauve;
+      }
+
+      slider {
+        all: unset;
+      }
+    }
+
+    centerbox.actions {
+      min-width: 220px;
+
+      button {
+        @include Button;
+        min-width: 0;
+        min-height: 0;
+        padding: .4rem;
+        margin: 0 .2rem;
+        border-radius: 8px;
+      }
+    }
+
+    label.position,
+    label.length {
+      font-weight: bold;
+      color: $widget-text;
+    }
+  }
 
 
   box.QSButton {

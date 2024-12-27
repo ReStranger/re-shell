@@ -39,13 +39,22 @@ function MediaPlayer({ player }: { player: Mpris.Player }) {
             <box className="cover-art" css={coverArt} />
             <box vertical>
                 <box className="title">
-                    <label truncate hexpand halign={START} label={title} />
+                    <label
+                        truncate
+                        hexpand
+                        maxWidthChars={20}
+                        halign={START}
+                        label={title}
+                    />
                     <icon icon={playerIcon} />
                 </box>
                 <label
+                    className="artist"
                     halign={START}
                     valign={START}
                     vexpand
+                    truncate
+                    maxWidthChars={20}
                     wrap
                     label={artist}
                 />
@@ -102,12 +111,10 @@ function MediaPlayer({ player }: { player: Mpris.Player }) {
 export default function () {
     const mpris = Mpris.get_default();
     return (
-        <window>
-            <box vertical>
-                {bind(mpris, "players").as((arr) =>
-                    arr.map((player) => <MediaPlayer player={player} />),
-                )}
-            </box>
-        </window>
+        <box className="MediaPlayerBox" vertical>
+            {bind(mpris, "players").as((arr) =>
+                arr.map((player) => <MediaPlayer player={player} />),
+            )}
+        </box>
     );
 }
