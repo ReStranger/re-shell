@@ -7,6 +7,7 @@ import AppLauncher from "./widgets/launcher/AppLauncher";
 import NotificationPopups from "./widgets/notificetion/NotificationPopups";
 import MediaPlayer from "./widgets/mediaplayer/MediaPlayer";
 import ToolBar from "./widgets/toolbar/ToolBar";
+import Autor from "./widgets/autor/Autor";
 
 export default function () {
     App.start({
@@ -20,7 +21,7 @@ export default function () {
             App.get_monitors().map(NotificationPopups);
             AppLauncher();
             App.get_window("AppLauncher")!.hide();
-            //App.get_monitors().map(MediaPlayer);
+            App.get_monitors().map(Autor);
         },
     });
 }

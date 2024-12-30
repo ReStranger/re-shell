@@ -1,0 +1,23 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+window.Autor {
+  background-color: transparent;
+
+  box.AutorBox {
+    margin-right: 50px;
+    margin-bottom: 10px;
+
+    label {
+      color: $widget-text;
+      font-size: 4rem;
+      font-family: "Liga Operator Mono";
+      font-style: italic;
+
+      &.logo {
+        margin-top: 10px;
+        margin-right: 1.8rem;
+      }
+    }
+  }
+}
