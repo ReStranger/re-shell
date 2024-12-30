@@ -110,6 +110,7 @@ eventbox.Notification {
 
     button {
       @include Button;
+      border-radius: $radius - 3px;
       margin: 0 .3rem;
 
       &:active {
