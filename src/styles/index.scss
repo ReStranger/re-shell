@@ -1,6 +1,7 @@
 @use "./bar/bar";
 @use "./bar/screencorners";
-@use "./quicksettings/quicksettings.scss";
+@use "./quicksettings/quicksettings";
+@use "./toolbar/toolbar";
 @use "./launcher/applauncher";
 @use "./notificetion/notificetion";
 @use "./mediaplayer/mediaplayer";

@@ -1,0 +1,9 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+box.ToolBar {
+  @include Window;
+  padding: 10px;
+  margin: 10px;
+  margin-right: 150rem;
+}

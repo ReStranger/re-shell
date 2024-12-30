@@ -6,6 +6,7 @@ import QuickSettings from "./widgets/quicksettings/QuickSettings";
 import AppLauncher from "./widgets/launcher/AppLauncher";
 import NotificationPopups from "./widgets/notificetion/NotificationPopups";
 import MediaPlayer from "./widgets/mediaplayer/MediaPlayer";
+import ToolBar from "./widgets/toolbar/ToolBar";
 
 export default function () {
     App.start({
@@ -15,6 +16,7 @@ export default function () {
             App.get_monitors().map(Bar);
             App.get_monitors().map(ScreenCorners);
             App.get_monitors().map(QuickSettings);
+            App.get_monitors().map(ToolBar);
             App.get_monitors().map(NotificationPopups);
             AppLauncher();
             App.get_window("AppLauncher")!.hide();
