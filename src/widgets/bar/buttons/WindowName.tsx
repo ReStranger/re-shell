@@ -35,7 +35,6 @@ export default function () {
             </box>
         );
     } catch (error) {
-        return;
-        <box className="WindowName" />;
+        return <box className="WindowName" />;
     }
 }
