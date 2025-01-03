@@ -82,11 +82,7 @@ const Layout: LayoutFunction = (
     "top-right": () => (
         <box>
             <Padding name={name} />
-            <box hexpand vertical>
-                <Padding
-                    name={name}
-                    opts={{ vexpand: false, className: "event-top-padding" }}
-                />
+            <box hexpand={false} vertical>
                 <PopupRevealer
                     name={name}
                     child={child}
@@ -116,7 +112,6 @@ const Layout: LayoutFunction = (
     ),
     "top-left": () => (
         <box>
-            <Padding name={name} />
             <box hexpand={false} vertical>
                 <Padding
                     name={name}
