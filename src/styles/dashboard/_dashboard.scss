@@ -1,0 +1,10 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+
+box.DashBoard {
+  @include Window;
+  padding: 10px;
+  margin: 10px;
+
+}

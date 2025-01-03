@@ -24,7 +24,7 @@ const Time = () => {
             className="Time"
             cursor="pointer"
             onClicked={() => {
-                openMenu("quick-settings");
+                openMenu("dashboard");
             }}
         >
             <DateTimeFormat format="%H:%M" />
@@ -38,7 +38,7 @@ const Date = () => {
             className="Date"
             cursor="pointer"
             onClicked={() => {
-                openMenu("quick-settings");
+                openMenu("dashboard");
             }}
         >
             <DateTimeFormat format="%a %e" />

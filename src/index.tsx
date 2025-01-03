@@ -8,6 +8,7 @@ import NotificationPopups from "./widgets/notificetion/NotificationPopups";
 import MediaPlayer from "./widgets/mediaplayer/MediaPlayer";
 import ToolBar from "./widgets/toolbar/ToolBar";
 import Autor from "./widgets/autor/Autor";
+import DashBoard from "./widgets/dashboard/DashBoard";
 
 export default function () {
     App.start({
@@ -16,6 +17,7 @@ export default function () {
         main() {
             App.get_monitors().map(Bar);
             App.get_monitors().map(ScreenCorners);
+            App.get_monitors().map(DashBoard);
             App.get_monitors().map(QuickSettings);
             App.get_monitors().map(ToolBar);
             App.get_monitors().map(NotificationPopups);
