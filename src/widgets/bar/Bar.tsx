@@ -4,6 +4,7 @@ import WindowName from "./buttons/WindowName";
 import PowerBarButton from "./buttons/PowerBarButton";
 import QSBarItems from "./buttons/QSBarItems";
 import Battery from "./buttons/Battery";
+import SysTray from "./buttons/SysTray";
 
 const Start = () => {
     return (
@@ -25,6 +26,7 @@ const End = () => {
     return (
         <box halign={Gtk.Align.END} className="End">
             <Battery />
+            <SysTray />
             <QSBarItems />
             <PowerBarButton />
         </box>
