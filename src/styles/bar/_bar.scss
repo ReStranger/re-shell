@@ -63,6 +63,22 @@ window.Bar {
       }
     }
 
+    box.SysTray {
+
+      border-radius: 12px;
+      padding: 5px 2px;
+      margin: 6px 3px;
+      background-color: gtkalpha($widget-text, .06);
+      box-shadow: 0 0 0 1px gtkalpha($widget-text, .04) inset;
+      color: $widget-text;
+
+      button {
+        all: unset;
+        font-size: 1.1rem;
+        margin: 0 3px;
+      }
+    }
+
     button.QSBarItems {
       icon {
         font-size: 1.2rem;
