@@ -5,14 +5,22 @@ import BarButton from "./BarButton";
 import { openMenu } from "../../../lib/utils";
 
 function WifiBarIcon() {
-    const { wifi } = Network.get_default();
+    const network = Network.get_default();
+    const wifi = bind(network, "wifi");
 
     return (
-        <icon
-            tooltipText={bind(wifi, "ssid").as(String)}
-            className="WifiBarIcon"
-            icon={bind(wifi, "iconName")}
-        />
+        <box visible={wifi.as(Boolean)}>
+            {wifi.as(
+                (wifi) =>
+                    wifi && (
+                        <icon
+                            tooltipText={bind(wifi, "ssid").as(String)}
+                            className="Wifi"
+                            icon={bind(wifi, "iconName")}
+                        />
+                    ),
+            )}
+        </box>
     );
 }
 export function AudioBarIcon() {
