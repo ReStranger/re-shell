@@ -1,0 +1,45 @@
+@use "variables" as *;
+
+$_margin: 99px;
+$_radius: $radius + $padding;
+$_shadow-size: 5px;
+
+window.screen-corner {
+
+  box.shadow {
+    margin-right: $_margin * -1;
+    margin-left: $_margin * -1;
+
+    @if $shadows {
+      box-shadow: inset 0px 0px $_shadow-size 0 $shadow-color;
+    }
+
+    @if $bar-position =="top" {
+      margin-bottom: $_margin * -1;
+    }
+
+    @if $bar-position =="bottom" {
+      margin-top: $_margin * -1;
+    }
+  }
+
+  box.border {
+    @if $bar-position =="top" {
+      border-top: $border-width solid $widget-bg2;
+    }
+
+    @if $bar-position =="bottom" {
+      border-bottom: $border-width solid $widget-bg2;
+    }
+
+    margin-right: $_margin;
+    margin-left: $_margin;
+    border-radius: if($radius>0, $_radius, 0);
+    box-shadow: 0 0 0 $_radius $widget-bg2;
+  }
+
+  box.corner {
+    box-shadow: 0 0 0 $border-width $border-color;
+    border-radius: if($radius>0, $_radius, 0);
+  }
+}
