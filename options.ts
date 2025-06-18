@@ -53,6 +53,12 @@ const options = mkOptions(OPTIONS, {
     size: opt(13),
     name: opt("Ubuntu Nerd Font"),
   },
+  bar: {
+    flatButtons: opt(true),
+    position: opt<"top" | "bottom">("top"),
+    corners: opt(50),
+    transparent: opt(false),
+  },
 });
 
 globalThis["options"] = options;
