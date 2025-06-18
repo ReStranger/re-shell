@@ -8,7 +8,9 @@
     "moduleResolution": "Bundler",
     // "checkJs": true,
     // "allowJs": true,
+    "noImplicitAny": false,
     "jsx": "react-jsx",
-    "jsxImportSource": "ags/gtk4"
+    "jsxImportSource": "ags/gtk4",
+    "baseUrl": "."
   }
 }

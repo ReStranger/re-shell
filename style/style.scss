@@ -2,12 +2,12 @@
 $fg-color: #{"@theme_fg_color"};
 $bg-color: #{"@theme_bg_color"};
 
-window.Bar {
+window.bar {
   background: transparent;
   color: $fg-color;
   font-weight: bold;
 
-  > centerbox {
+  >centerbox {
     background: $bg-color;
     border-radius: 10px;
     margin: 8px;
