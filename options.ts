@@ -59,6 +59,11 @@ const options = mkOptions(OPTIONS, {
     corners: opt(50),
     transparent: opt(false),
   },
+  hyprland: {
+    gaps: opt(2.4),
+    inactiveBorder: opt("#282828"),
+    gapsWhenOnly: opt(false),
+  },
 });
 
 globalThis["options"] = options;
