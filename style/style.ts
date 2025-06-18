@@ -15,7 +15,8 @@ const deps = [
   "bar.battery.blocks",
 ];
 
-const { dark, light, blur, scheme } = options.theme;
+const { dark, light, blur, scheme, padding, spacing, radius, shadows, border } =
+  options.theme;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const t = (dark: Opt<any> | string, light: Opt<any> | string) =>
@@ -23,6 +24,7 @@ const t = (dark: Opt<any> | string, light: Opt<any> | string) =>
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const $ = (name: string, value: string | Opt<any>) => `$${name}: ${value};`;
+
 const variables = () => [
   $(
     "bg",
@@ -31,6 +33,31 @@ const variables = () => [
       : t(dark.bg.getValue(), light.bg.getValue()),
   ),
   $("fg", t(dark.fg.getValue(), light.fg.getValue())),
+  $("primary-bg", t(dark.primary.bg.getValue(), light.primary.bg.getValue())),
+  $("primary-fg", t(dark.primary.fg.getValue(), light.primary.fg.getValue())),
+
+  $("error-bg", t(dark.error.bg.getValue(), light.error.bg.getValue())),
+  $("error-fg", t(dark.error.fg.getValue(), light.error.fg.getValue())),
+
+  $("scheme", scheme.getValue()),
+  $("padding", `${padding.getValue()}pt`),
+  $("spacing", `${spacing.getValue()}pt`),
+  $("radius", `${radius.getValue()}px`),
+  $("transition", `${options.transition.getValue()}ms`),
+
+  $("shadows", `${shadows.getValue()}`),
+  $("shadow-color", t("rgba(0,0,0,.6)", "rgba(0,0,0,.4)")),
+
+  $("border-width", `${border.width.getValue()}px`),
+  $(
+    "border-color",
+    `transparentize(${t(dark.border.getValue(), light.border.getValue())}, ${border.opacity.getValue() / 100})`,
+  ),
+  $("border", "$border-width solid $border-color"),
+
+  $("bar-position", options.bar.position.getValue()),
+  $("hyprland-gaps-multiplier", `${options.hyprland.gaps.getValue()}`),
+  $("screen-corner-multiplier", `${options.bar.corners.getValue() * 0.01}`),
 ];
 
 async function resetCss() {
