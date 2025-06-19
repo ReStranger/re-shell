@@ -102,7 +102,11 @@ async function resetCss() {
 
         app.apply_css(css, true);
     } catch (error) {
-        error instanceof Error ? logError(error) : console.error(error);
+        if (error instanceof Error) {
+            logError(error);
+        } else {
+            console.error(error);
+        }
     }
 }
 
