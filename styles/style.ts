@@ -106,6 +106,6 @@ async function resetCss() {
     }
 }
 
-monitorFile(`${SRC}/style`, resetCss);
+monitorFile(`${SRC}/styles`, resetCss);
 options.handler(deps, resetCss);
 await resetCss();

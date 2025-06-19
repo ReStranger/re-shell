@@ -1,8 +1,8 @@
 {
     "name": "re-shell",
     "scripts": {
-        "lint": "eslint --fix ./app.ts ./env.d.ts ./eslint.config.mjs ./lib/*.ts ./style/style.ts ./widget/**/*.tsx",
-        "format": "prettier --write ./app.ts ./env.d.ts ./eslint.config.mjs ./lib/*.ts ./style/style.ts ./widget/**/*.tsx"
+        "lint": "eslint --fix ./app.ts ./env.d.ts ./eslint.config.mjs ./lib/*.ts ./styles/style.ts ./widget/**/*.tsx",
+        "format": "prettier --write ./app.ts ./env.d.ts ./eslint.config.mjs ./lib/*.ts ./styles/style.ts ./widget/**/*.tsx"
     },
     "devDependencies": {
         "@eslint/js": "^9.23.0",
