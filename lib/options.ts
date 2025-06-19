@@ -28,11 +28,18 @@ export class Opt<T = unknown> extends Variable<T> {
     };
 
     init(cacheFile: string) {
-        const cacheV = JSON.parse(readFile(cacheFile) || "{}")[this.id];
+        let cacheV: T | undefined;
+        try {
+            cacheV = JSON.parse(readFile(cacheFile))[this.id];
+        } catch {
+            writeFile(cacheFile, "{}");
+            cacheV = undefined;
+        }
+
         if (cacheV !== undefined) this.set(cacheV);
 
         this.subscribe(() => {
-            const cache = JSON.parse(readFile(cacheFile) || "{}");
+            const cache = JSON.parse(readFile(cacheFile));
             cache[this.id] = this.getValue;
             writeFile(cacheFile, JSON.stringify(cache, null, 2));
         });
