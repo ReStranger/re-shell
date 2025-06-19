@@ -63,11 +63,12 @@ const options = mkOptions(OPTIONS, {
         inactiveBorder: opt("#282828"),
         gapsWhenOnly: opt(false),
     },
-    font: {
-        size: opt(13),
-        name: opt("Ubuntu Nerd Font"),
-    },
     position: opt<"top" | "bottom">("top"),
+    date: {
+        format: opt("%H:%M - %A %e"),
+        // TODO: Uncomment after implementing DateMenu
+        // action: opt(app.toggle_window("datemenu")),
+    },
 });
 
 globalThis["options"] = options;
