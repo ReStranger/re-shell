@@ -5,7 +5,7 @@ import style from "./styles/style.scss";
 import windows from "windows";
 
 app.start({
-  main() {
-    windows.map((w) => app.get_monitors().map(w));
-  },
+    main() {
+        windows.map((w) => app.get_monitors().map(w));
+    },
 });
