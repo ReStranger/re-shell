@@ -8,7 +8,7 @@ declare global {
 }
 
 Object.assign(globalThis, {
-    OPTIONS: `${GLib.get_user_cache_dir()}/ags/options.json`,
+    OPTIONS: `${GLib.get_user_cache_dir()}/re-shell/options.json`,
     TMP: `${GLib.get_tmp_dir()}/re-shell`,
     USER: GLib.get_user_name(),
 });
