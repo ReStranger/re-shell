@@ -23,11 +23,6 @@
 
   @if $reactive {
 
-    &:focus>*,
-    &.focused>* {
-      @include button-focus;
-    }
-
     &:hover>* {
       @include button-hover;
     }
