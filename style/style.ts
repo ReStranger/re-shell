@@ -1,4 +1,3 @@
- 
 import { type Opt } from "lib/options";
 import options from "options";
 import { monitorFile, writeFileAsync } from "ags/file";
@@ -15,8 +14,18 @@ const deps = [
     "bar.battery.blocks",
 ];
 
-const { dark, light, blur, scheme, padding, spacing, radius, shadows, border } =
-    options.theme;
+const {
+    dark,
+    light,
+    blur,
+    scheme,
+    padding,
+    spacing,
+    radius,
+    shadows,
+    border,
+    widget,
+} = options.theme;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const t = (dark: Opt<any> | string, light: Opt<any> | string) =>
@@ -46,7 +55,17 @@ const variables = () => [
     $("transition", `${options.transition.getValue()}ms`),
 
     $("shadows", `${shadows.getValue()}`),
-    $("shadow-color", t("rgba(0,0,0,.6)", "rgba(0,0,0,.4)")),
+
+    $(
+        "widget-bg",
+        `transparentize(${t(dark.widget.getValue(), light.widget.getValue())}, ${widget.opacity.getValue() / 100})`,
+    ),
+
+    $(
+        "hover-bg",
+        `transparentize(${t(dark.widget.getValue(), light.widget.getValue())}, ${(widget.opacity.getValue() * 0.9) / 100})`,
+    ),
+    $("hover-fg", `lighten(${t(dark.fg.getValue(), light.fg.getValue())}, 8%)`),
 
     $("border-width", `${border.width.getValue()}px`),
     $(
@@ -54,6 +73,11 @@ const variables = () => [
         `transparentize(${t(dark.border.getValue(), light.border.getValue())}, ${border.opacity.getValue() / 100})`,
     ),
     $("border", "$border-width solid $border-color"),
+    $(
+        "active-gradient",
+        `linear-gradient(to right, ${t(dark.primary.bg.getValue(), light.primary.bg.getValue())}, darken(${t(dark.primary.bg.getValue(), light.primary.bg.getValue())}, 4%))`,
+    ),
+    $("shadow-color", t("rgba(0,0,0,.6)", "rgba(0,0,0,.4)")),
 
     $("bar-position", options.bar.position.getValue()),
     $("hyprland-gaps-multiplier", `${options.hyprland.gaps.getValue()}`),
