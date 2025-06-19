@@ -1,3 +1,4 @@
+import { Astal } from "ags/gtk4";
 import { opt, mkOptions } from "lib/options";
 
 const options = mkOptions(OPTIONS, {
@@ -57,17 +58,17 @@ const options = mkOptions(OPTIONS, {
         flatButtons: opt(true),
         corners: opt(50),
         transparent: opt(false),
+        position: opt<"top" | "bottom">("top"),
+        date: {
+            format: opt("%H:%M - %A %e"),
+            // TODO: Uncomment after implementing DateMenu
+            // action: opt(app.toggle_window("datemenu")),
+        },
     },
     hyprland: {
         gaps: opt(2.4),
         inactiveBorder: opt("#282828"),
         gapsWhenOnly: opt(false),
-    },
-    position: opt<"top" | "bottom">("top"),
-    date: {
-        format: opt("%H:%M - %A %e"),
-        // TODO: Uncomment after implementing DateMenu
-        // action: opt(app.toggle_window("datemenu")),
     },
 });
 
