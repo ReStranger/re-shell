@@ -27,22 +27,21 @@ export default ({
                 "flat",
                 flat ?? options.bar.flatButtons.getValue(),
             );
-            app.connect(
-                "window-toggled",
-                (_, win: string, visible: boolean) => {
-                    if (win !== window) return;
+            app.connect("window-toggled", (_, win: Gtk.Window) => {
+                const winName = win.get_name() ?? win.name;
+                if (winName !== window) return;
 
-                    if (open && !visible) {
-                        open = false;
-                        toggleClassName(self, "active", false);
-                    }
+                const isVisible = win.is_visible?.() ?? win.visible;
+                if (open && isVisible === false) {
+                    open = false;
+                    toggleClassName(self, "active", false);
+                }
+                if (isVisible) {
+                    open = true;
+                    toggleClassName(self, "active");
+                }
+            });
 
-                    if (visible) {
-                        open = true;
-                        toggleClassName(self, "active");
-                    }
-                },
-            );
             if ($) $(self);
         }}
         {...rest}
