@@ -1,10 +1,15 @@
 import app from "ags/gtk4/app";
 import { Astal, Gtk, Gdk } from "ags/gtk4";
+import Date from "./buttons/Date";
 
 const StartWidget = () => (
     <box _type="start" hexpand halign={Gtk.Align.CENTER}></box>
 );
-const CenterWidget = () => <box _type="center"></box>;
+const CenterWidget = () => (
+    <box _type="center">
+        <Date />
+    </box>
+);
 
 const EndWidget = () => (
     <box _type="end" hexpand halign={Gtk.Align.CENTER}></box>

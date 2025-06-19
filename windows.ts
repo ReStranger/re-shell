@@ -1,4 +1,4 @@
-import Bar from "widget/bar/Bar";
-import ScreenCorners from "widget/bar/ScreenCorners";
+import Bar from "widgets/bar/Bar";
+import ScreenCorners from "widgets/bar/ScreenCorners";
 
 export default [Bar, ScreenCorners];
