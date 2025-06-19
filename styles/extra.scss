@@ -1,6 +1,6 @@
 @import './mixins/button.scss';
 
 * {
-  font-size: 13px;
-  font-family: "Ubuntu Sans";
+  font-size: $font-size;
+  font-family: $font-name;
 }

@@ -79,6 +79,9 @@ const variables = () => [
     ),
     $("shadow-color", t("rgba(0,0,0,.6)", "rgba(0,0,0,.4)")),
 
+    $("font-size", `${options.font.size.getValue()}pt`),
+    $("font-name", `${options.font.name.getValue()}`),
+
     $("bar-position", options.bar.position.getValue()),
     $("hyprland-gaps-multiplier", `${options.hyprland.gaps.getValue()}`),
     $("screen-corner-multiplier", `${options.bar.corners.getValue() * 0.01}`),

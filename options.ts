@@ -64,6 +64,10 @@ const options = mkOptions(OPTIONS, {
     inactiveBorder: opt("#282828"),
     gapsWhenOnly: opt(false),
   },
+    font: {
+        size: opt(13),
+        name: opt("Ubuntu Nerd Font"),
+    },
 });
 
 globalThis["options"] = options;
