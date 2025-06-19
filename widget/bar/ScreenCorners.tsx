@@ -1,5 +1,6 @@
 import { Astal, Gdk } from "ags/gtk4";
 import app from "ags/gtk4/app";
+import { toggleClassName } from "lib/utils";
 import options from "options";
 
 const { corners, transparent } = options.bar;
@@ -19,12 +20,8 @@ export default (gdkmonitor: Gdk.Monitor) => {
             gdkmonitor={gdkmonitor}
             application={app}
             $={(self) => {
-                corners.getValue() > 0
-                    ? self.add_css_class("corners")
-                    : self.remove_css_class("corners");
-                transparent.getValue()
-                    ? self.add_css_class("hidden")
-                    : self.remove_css_class("hidden");
+                toggleClassName(self, "corners", corners.getValue() > 0);
+                toggleClassName(self, "hidden", transparent.getValue());
             }}
         >
             <box class="shadow">

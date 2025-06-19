@@ -1,5 +1,6 @@
 import GLib from "gi://GLib";
 import { execAsync, exec } from "ags/process";
+import { Gtk } from "ags/gtk4";
 
 /**
  * @returns execAsync(["bash", "-c", cmd])
@@ -43,4 +44,16 @@ export function dependencies(...bins: string[]) {
     }
 
     return missing.length === 0;
+}
+
+export function toggleClassName(
+    self: Gtk.Widget,
+    className: string,
+    signal: boolean = true,
+) {
+    if (signal) {
+        self.add_css_class(className);
+    } else {
+        self.remove_css_class(className);
+    }
 }
