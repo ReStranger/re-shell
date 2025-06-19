@@ -1,6 +1,9 @@
 import app from "ags/gtk4/app";
 import { Astal, Gtk, Gdk } from "ags/gtk4";
 import Date from "./buttons/Date";
+import options from "options";
+
+const { position } = options.bar;
 
 const StartWidget = () => (
     <box _type="start" hexpand halign={Gtk.Align.CENTER}></box>
@@ -16,7 +19,7 @@ const EndWidget = () => (
 );
 
 export default (gdkmonitor: Gdk.Monitor) => {
-    const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
+    const { TOP, BOTTOM, LEFT, RIGHT } = Astal.WindowAnchor;
 
     return (
         <window
@@ -25,7 +28,9 @@ export default (gdkmonitor: Gdk.Monitor) => {
             class="bar"
             gdkmonitor={gdkmonitor}
             exclusivity={Astal.Exclusivity.EXCLUSIVE}
-            anchor={TOP | LEFT | RIGHT}
+            anchor={
+                (position.getValue() === "top" ? TOP : BOTTOM) | LEFT | RIGHT
+            }
             application={app}
         >
             <centerbox
