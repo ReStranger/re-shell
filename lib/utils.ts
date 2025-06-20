@@ -1,6 +1,7 @@
 import GLib from "gi://GLib";
 import { execAsync, exec } from "ags/process";
 import { Gtk } from "ags/gtk4";
+import app from "ags/gtk4/app";
 
 /**
  * @returns execAsync(["bash", "-c", cmd])
@@ -55,5 +56,14 @@ export function toggleClassName(
         self.add_css_class(className);
     } else {
         self.remove_css_class(className);
+    }
+}
+
+export function toggleWindow(name: string) {
+    const win = app.get_window(name)!;
+    if (win.visible) {
+        win.hide();
+    } else {
+        win.show();
     }
 }
