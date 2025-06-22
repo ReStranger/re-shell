@@ -25,12 +25,22 @@ $button-radius: $radius;
   transition: $transition;
   background-color: $bg;
 
-  .panel-button {
+  .panel-button,
+  .tray-item {
     @include panel-button;
 
     &:not(.flat) {
-
       @include accs-button($flat: false);
+    }
+  }
+
+  .tray-item>.menu {
+    @include unset;
+
+    label {
+      font-family: $font-name;
+      font-size: $font-size - 2;
+      font-weight: 400;
     }
   }
 }

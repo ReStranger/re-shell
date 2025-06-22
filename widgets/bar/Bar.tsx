@@ -2,6 +2,7 @@ import app from "ags/gtk4/app";
 import { Astal, Gtk, Gdk } from "ags/gtk4";
 import Date from "./buttons/Date";
 import options from "options";
+import SysTray from "widgets/bar/buttons/SysTray";
 
 const { position } = options.bar;
 
@@ -15,7 +16,9 @@ const CenterWidget = () => (
 );
 
 const EndWidget = () => (
-    <box _type="end" hexpand halign={Gtk.Align.CENTER}></box>
+    <box _type="end" hexpand halign={Gtk.Align.END}>
+        <SysTray />
+    </box>
 );
 
 export default (gdkmonitor: Gdk.Monitor) => {
