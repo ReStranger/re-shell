@@ -21,6 +21,16 @@ export async function bash(
     });
 }
 
+/**
+ * @returns execAsync(cmd)
+ */
+export async function sh(cmd: string | string[]) {
+    return execAsync(cmd).catch((err) => {
+        console.error(typeof cmd === "string" ? cmd : cmd.join(" "), err);
+        return "";
+    });
+}
+
 export function ensureDirectory(path: string) {
     if (!GLib.file_test(path, GLib.FileTest.IS_DIR)) {
         GLib.mkdir_with_parents(path, 0o755);
