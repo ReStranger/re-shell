@@ -37,6 +37,14 @@ $button-radius: $radius;
   .tray-item>.menu {
     @include unset;
 
+    &:hover,
+    &:active,
+    &.active,
+    &.on,
+    &:checked {
+      @include unset;
+    }
+
     label {
       font-family: $font-name;
       font-size: $font-size - 2;
