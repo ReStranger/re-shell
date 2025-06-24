@@ -7,16 +7,16 @@ import SysTray from "widgets/bar/buttons/SysTray";
 const { position } = options.bar;
 
 const StartWidget = () => (
-    <box _type="start" hexpand halign={Gtk.Align.CENTER}></box>
+    <box $type="start" hexpand halign={Gtk.Align.CENTER}></box>
 );
 const CenterWidget = () => (
-    <box _type="center">
+    <box $type="center">
         <Date />
     </box>
 );
 
 const EndWidget = () => (
-    <box _type="end" hexpand halign={Gtk.Align.END}>
+    <box $type="end" hexpand halign={Gtk.Align.END}>
         <SysTray />
     </box>
 );

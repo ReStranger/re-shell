@@ -27,7 +27,7 @@ function Padding(winName: string) {
         <button
             cssClasses={["button-padding"]}
             canFocus={false}
-            $clicked={() => app.get_window(winName)?.hide()}
+            onClicked={() => app.get_window(winName)?.hide()}
             hexpand
             vexpand
         />

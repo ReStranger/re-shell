@@ -11,7 +11,7 @@ export default () => (
     <PanelButton
         // TODO: Uncomment after implementing DateMenu
         // window="datemenu"
-        $clicked={() => {
+        onClicked={() => {
             action.getValue();
         }}
     >
